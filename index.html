@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./Css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./Css/NavBar.css" />
+    <link rel="stylesheet" type="text/css" href="./Css/ReadTodo.css" />
+    <script type="text/javascript" src="./Data/Db.js"></script>
+
+    <title>Todo App</title>
+
+    <script type="text/javascript">
+      console.log(retArr);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <span>TODO App</span>
+        <span class="links">
+          <a href="/index.html">Home</a>
+          <a href="/Create.html">Create</a>
+        </span>
+      </div>
+
+      <div class="todo-app">
+        <div id="displayData" class="readtodo-inner-container"></div>
+      </div>
+    </div>
+
+    <!-- Display Todo Data  -->
+    <script type="text/javascript">
+      document.getElementById("displayData").innerHTML =
+        retArr.length == 0
+          ? `<div>Please Create Some TODO's</div>`
+          : retArr
+              .map((todo, index) => {
+                const tileindex = `tile_${index}`;
+
+                return `<div>
+    <div class="todoTile" onClick="displaydetailsSection(${index})">${
+                  todo?.title
+                }</div>
+    <div id="${tileindex}" style="display:none;">
+      <div>${todo?.description}</div>
+      <div style="padding:5px; color:${
+        todo?.status == "Pending" ? `red` : `green`
+      }"><b>${todo?.status}</b></div>
+    </div>
+  </div>`;
+              })
+              .join("");
+
+      function displaydetailsSection(index) {
+        const tileindex = `tile_${index}`;
+        const val = document.getElementById(tileindex).style.display; 
+        if(val == "block"){
+          document.getElementById(tileindex).style.display = "none";
+        }
+        else{
+          document.getElementById(tileindex).style.display="block";
+        }
+        document.getElementById(tileindex).style.borderLeft = "2px solid black";
+        document.getElementById(tileindex).style.borderRight =
+          "2px solid black";
+        document.getElementById(tileindex).style.borderBottom =
+          "2px solid black";
+        document.getElementById(tileindex).style.borderTop = "0px solid black";
+        document.getElementById(tileindex).style.borderBottomLeftRadius =
+          "20px";
+        document.getElementById(tileindex).style.borderBottomRightRadius =
+          "20px";
+        document.getElementById(tileindex).style.margin = "0px 6px 6px";
+        document.getElementById(tileindex).style.padding = "5px";
+        document.getElementById(tileindex).style.textAlign = "center";
+      }
+    </script>
+  </body>
+</html>

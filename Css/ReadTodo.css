@@ -1,0 +1,16 @@
+.readtodo-inner-container{
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto 10px;
+}
+.todoTile{
+    border:2px solid black;
+    border-radius: 50px;
+    margin: 6px 6px 0px;
+    padding: 5px;
+    text-align: center;
+}   
+
+
+
+

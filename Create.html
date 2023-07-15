@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./Css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./Css/NavBar.css" />
+    <link rel="stylesheet" type="text/css" href="./Css/CreateTodo.css" />
+    <script type="text/javascript" src="./Model/TodoModel.js"></script>
+    <script type="text/javascript" src="./Data/Db.js"></script>
+
+    <title>Create TODO</title>
+  </head>
+  <body>
+    <div class="container">
+    <div class="navbar">
+        <span>TODO App</span>
+        <span class="links">
+          <a href="/index.html">Home</a>
+          <a href="/Create.html">Create</a>
+        </span>
+    </div>
+    <form name="todoform" method="POST" class="create-todo-container">
+      <table class="create-todo-inner-container">
+        <tr>
+            <td>
+                Title:
+            </td>
+          <td>
+            <input
+              type="text"
+              name="Title"
+              placeholder="Enter Title"
+              class="input-textbox"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+            <td>
+                Description:
+            </td>
+          <td>
+            <textarea
+              type="text"
+              name="Description"
+              placeholder="Enter Description"
+              rows="3"
+              cols="27"
+              required
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>
+            <select required name="Status" class="input-textbox">
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input
+              type="button"
+              name="button"
+              value="CREATE"
+              class="CreateButton"
+              onClick="onCreate(this.form)"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+    </div>
+
+    <script type="text/javascript">
+      function onCreate(form) {
+        var inputTitle = form.Title.value;
+        var inputDescription = form.Description.value;
+        var inputStatus = form.Status.value;
+
+        // Create obj of Todo, and store it in localStorage
+        const Obj = new Todo(inputTitle, inputDescription, inputStatus);
+        retArr.push(Obj);
+        let string = JSON.stringify(retArr);
+        localStorage.setItem("todoarr", string);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+.create-todo-container {
+  width: 100%;
+  max-width: 540px;
+  background-color: #fff;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+.create-todo-inner-container {
+  width: 100%;
+  max-width: 200px;
+  margin: 10px auto 10px;
+}
+
+td {
+  padding-top: 10px;
+}
+
+.input-textbox {
+  width: 200px;
+  height: 25px;
+}
+
+textarea {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.CreateButton{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color:  #4e085f;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 50px;  
+}
+
+
