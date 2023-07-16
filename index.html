@@ -41,10 +41,14 @@
                 return `<div>
     <div class="todoTile"  onClick="displaydetailsSection(${index})">${
                   todo?.title
-                }</div>
+                } <span style="float:right; margin:0px 0px 0px" onClick="onArrowClick(${index})">➤<span></div>
     <div id="todoTile-${index}">
     <div id="${tileindex}" style="display:none;">
-      <div style="padding-top:15px">${todo?.description.length > 150 ? todo?.description.substring(0,150)+'...' : todo?.description}</div>
+      <div style="padding-top:15px">${
+        todo?.description.length > 150
+          ? todo?.description.substring(0, 150) + "..."
+          : todo?.description
+      }</div>
       <div style="padding:5px; color:${
         todo?.status == "Pending" ? `red` : `green`
       }"><b>${todo?.status}</b></div>
@@ -60,7 +64,6 @@
       let touchEndX = 0;
       retArr.forEach((_, index) => {
         const todoTileElement = document.getElementById(`todoTile-${index}`);
-
         todoTileElement.addEventListener("touchstart", (event) => {
           touchStartX = event.touches[0].clientX;
         });
@@ -70,8 +73,7 @@
         });
 
         todoTileElement.addEventListener("touchend", (event) => {
-          const gestureThreshold = 5; 
-
+          const gestureThreshold = 5;
           const gestureDistance = touchEndX - touchStartX;
 
           if (Math.abs(gestureDistance) >= gestureThreshold) {
@@ -88,20 +90,22 @@
 
       function detectLeftSwipe(index) {
         // delete todo
-        retArr.splice(index,1);
+        retArr.splice(index, 1);
         setDbData(retArr);
         console.log(`Left swipe for element ${index}`);
-
       }
 
       function detectRightSwipe(index) {
         // update todo
         console.log(`Right swipe for element ${index}`);
         const url = `UpdateTodo.html?id=${encodeURIComponent(index)}`;
-        window.location.href=url;
+        window.location.href = url;
       }
 
-      
+      function onArrowClick(index){
+        const url = `UpdateTodo.html?id=${encodeURIComponent(index)}`;
+        window.location.href = url;
+      }
 
       function displaydetailsSection(index) {
         const tileindex = `tile_${index}`;
