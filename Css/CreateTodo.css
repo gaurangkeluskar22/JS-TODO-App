@@ -20,6 +20,8 @@ td {
 .input-textbox {
   width: 200px;
   height: 25px;
+  border: 1px solid black;
+  text-align: center;
 }
 
 textarea {

@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./Css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./Css/NavBar.css" />
-    <link rel="stylesheet" type="text/css" href="./Css/CreateTodo.css" />
-    <script type="text/javascript" src="./Model/TodoModel.js"></script>
-    <script type="text/javascript" src="./Data/Db.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/NavBar.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/CreateTodo.css" />
+    <script type="text/javascript" src="../Model/TodoModel.js"></script>
+    <script type="text/javascript" src="../Data/Db.js"></script>
 
     <title>Create TODO</title>
   </head>
@@ -16,8 +16,8 @@
     <div class="navbar">
         <span>TODO App</span>
         <span class="links">
-          <a href="/index.html">Home</a>
-          <a href="/Create.html">Create</a>
+          <a href="../index.html">Home</a>
+          <a href="../Components/Create.html">Create</a>
         </span>
     </div>
     <form name="todoform" method="POST" class="create-todo-container">
@@ -86,7 +86,7 @@
         retArr.push(Obj);
         setDbData(retArr);
         alert("Todo has been Created!");
-        window.location.href="index.html";
+        window.location.href="../index.html";
       }
     </script>
   </body>

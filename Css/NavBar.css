@@ -18,3 +18,37 @@
     font-size: 30px;
     color: #fff;
 }
+
+.searchbox{
+    float: right;
+}
+
+.searchbar{
+    width: 170px;
+    padding:15px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.searchbutton{
+    width: 100px;
+    text-align: center;
+    padding: 7px;
+    background-color:#153677;
+    color: #fff;
+    border: 1px solid white;
+    border-radius: 50px;  
+}
+
+.searchbar:focus{
+    outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .searchbox {
+        width: 100%;
+        text-align: center;
+        margin-top:10px;
+    }
+  }

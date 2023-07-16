@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./Css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./Css/NavBar.css" />
-    <link rel="stylesheet" type="text/css" href="./Css/ReadTodo.css" />
-    <script type="text/javascript" src="./Data/Db.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/NavBar.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/ReadTodo.css" />
+    <script type="text/javascript" src="../Data/Db.js"></script>
 
-    <title>Todo App</title>
+    <title>Search Todo's</title>
 
     <script type="text/javascript">
-      console.log(retArr);
+      console.log(searchDataArr);
     </script>
   </head>
   <body>
@@ -19,13 +19,10 @@
       <div class="navbar">
         <span>TODO App</span>
         <span class="links">
-          <a href="/index.html">Home</a>
-          <a href="./Components/Create.html">Create</a>
+          <a href="../index.html">Home</a>
+          <a href="../Components/Create.html">Create</a>
         </span>
-        <span class="searchbox">
-          <input type="text" name="search" placeholder="Search..." class="searchbar" id="searchbar"/>
-          <input type="submit" value="Search" name="searchbutton" class="searchbutton" onclick="search()"/>
-        </span>
+        
       </div>
 
       <div class="todo-app">
@@ -36,9 +33,9 @@
     <!-- Display Todo Data  -->
     <script type="text/javascript">
       document.getElementById("displayData").innerHTML =
-        retArr.length == 0
-          ? `<div style="text-align:center">Please Create Some TODO's</div>`
-          : retArr
+        searchDataArr.length == 0
+          ? `<div style="text-align:center">No Search Result Found !</div>`
+          : searchDataArr
               .map((todo, index) => {
                 const tileindex = `tile_${index}`;
 
@@ -97,13 +94,12 @@
         retArr.splice(index, 1);
         setDbData(retArr);
         console.log(`Left swipe for element ${index}`);
-        window.location.href="./index.html";
+        window.location.href="../index.html";
       }
 
       function detectRightSwipe(index) {
         // update todo
         console.log(`Right swipe for element ${index}`);
-        
         const url = `./Components/UpdateTodo.html?id=${encodeURIComponent(index)}`;
         window.location.href = url;
       }
@@ -136,15 +132,6 @@
         document.getElementById(tileindex).style.textAlign = "center";
       }
 
-      function search(){
-        const searchInput=document.getElementById("searchbar").value;
-        console.log(searchInput);
-        const seachItems=[];
-        searchItems=retArr.filter((todo) => todo.title.toLowerCase().includes(searchInput.toLowerCase()));
-        console.log(searchItems);
-        setDbSearchResultsData(searchItems);
-        window.location.href="./Components/SearchDetails.html";
-      }
     </script>
   </body>
 </html>
