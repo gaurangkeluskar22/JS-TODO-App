@@ -73,7 +73,7 @@
         });
 
         todoTileElement.addEventListener("touchend", (event) => {
-          const gestureThreshold = 5;
+          const gestureThreshold = 10;
           const gestureDistance = touchEndX - touchStartX;
 
           if (Math.abs(gestureDistance) >= gestureThreshold) {
@@ -93,6 +93,7 @@
         retArr.splice(index, 1);
         setDbData(retArr);
         console.log(`Left swipe for element ${index}`);
+        window.location.href="index.html";
       }
 
       function detectRightSwipe(index) {
