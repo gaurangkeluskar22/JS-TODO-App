@@ -6,3 +6,7 @@ if(retArr==null){
 }
 
 
+function setDbData(Arr){
+    let string = JSON.stringify(Arr);
+    localStorage.setItem("todoarr", string);
+}

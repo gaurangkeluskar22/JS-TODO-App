@@ -84,8 +84,7 @@
         // Create obj of Todo, and store it in localStorage
         const Obj = new Todo(inputTitle, inputDescription, inputStatus);
         retArr.push(Obj);
-        let string = JSON.stringify(retArr);
-        localStorage.setItem("todoarr", string);
+        setDbData(retArr);
       }
     </script>
   </body>
