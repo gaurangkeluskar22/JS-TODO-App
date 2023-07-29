@@ -23,8 +23,20 @@
           <a href="./Components/Create.html">Create</a>
         </span>
         <span class="searchbox">
-          <input type="text" name="search" placeholder="Search..." class="searchbar" id="searchbar"/>
-          <input type="submit" value="Search" name="searchbutton" class="searchbutton" onclick="search()"/>
+          <input
+            type="text"
+            name="search"
+            placeholder="Search..."
+            class="searchbar"
+            id="searchbar"
+          />
+          <input
+            type="submit"
+            value="Search"
+            name="searchbutton"
+            class="searchbutton"
+            onclick="search()"
+          />
         </span>
       </div>
 
@@ -97,19 +109,23 @@
         retArr.splice(index, 1);
         setDbData(retArr);
         console.log(`Left swipe for element ${index}`);
-        window.location.href="./index.html";
+        window.location.href = "./index.html";
       }
 
       function detectRightSwipe(index) {
         // update todo
         console.log(`Right swipe for element ${index}`);
-        
-        const url = `./Components/UpdateTodo.html?id=${encodeURIComponent(index)}`;
+
+        const url = `./Components/UpdateTodo.html?id=${encodeURIComponent(
+          index
+        )}`;
         window.location.href = url;
       }
 
-      function onArrowClick(index){
-        const url = `./Components/UpdateTodo.html?id=${encodeURIComponent(index)}`;
+      function onArrowClick(index) {
+        const url = `./Components/UpdateTodo.html?id=${encodeURIComponent(
+          index
+        )}`;
         window.location.href = url;
       }
 
@@ -136,14 +152,16 @@
         document.getElementById(tileindex).style.textAlign = "center";
       }
 
-      function search(){
-        const searchInput=document.getElementById("searchbar").value;
+      function search() {
+        const searchInput = document.getElementById("searchbar").value;
         console.log(searchInput);
-        const seachItems=[];
-        searchItems=retArr.filter((todo) => todo.title.toLowerCase().includes(searchInput.toLowerCase()));
+        const seachItems = [];
+        searchItems = retArr.filter((todo) =>
+          todo.title.toLowerCase().includes(searchInput.toLowerCase())
+        );
         console.log(searchItems);
         setDbSearchResultsData(searchItems);
-        window.location.href="./Components/SearchDetails.html";
+        window.location.href = "./Components/SearchDetails.html";
       }
     </script>
   </body>
